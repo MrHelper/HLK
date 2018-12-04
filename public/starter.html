@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Starter</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="css/skins/_all-skins.min.css">
+
+  <link rel="stylesheet" href="css/app.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+
+<body class="hold-transition skin-black sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+      <!-- Logo -->
+      <a href="index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>LT</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Admin</b>LTE</span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img src="img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs user-name">Hung Nguyen</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                  <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <p><span class="user-name">Hung Nguyen</span><small class="company-name">Pasonatech VietNam</small></p>
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                  <div class="row">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+            <li>
+              <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p class="user-name">Hung Nguyen</p>
+            <!-- Status -->
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div>
+
+        <!-- search form (Optional) -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">Chức năng</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li page="Home"><a href="#"><i class="fa fa-link"></i> <span>Trang Chủ</span></a></li>
+          <li page="ImportData"><a href="#"><i class="fa fa-link"></i> <span>Thêm Dữ Liệu</span></a></li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-link"></i> <span>Hoá Đơn</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li page="Invoice"><a href="#">Thu Tiền</a></li>
+              <li><a href="#">V.v...</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content container-fluid">
+
+        <section class="page-content" id="Home">
+
+        </section>
+
+        <section class="page-content" id="ImportData">
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="imp-namhoc">Năm Học</label>
+              <input type="number" class="form-control" id="imp-namhoc" min="2000" max="3000" placeholder="Năm học">
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="imp-hocky">Học Kỳ / Tháng</label>
+              <input type="number" class="form-control" id="imp-hocky" min="1" max="12" placeholder="Học kỳ">
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="exampleInputFile">File dữ liệu</label>
+              <input type="file" id="imp-file">
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <button type="button" class="btn btn-primary" style="margin-top:20px;">Thêm</button>
+
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="imp-student">
+              <table class="table table-hover" id="imp-table">
+                <thead>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="page-content" id="Invoice">
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="inv-namhoc">Năm Học</label>
+              <input type="number" class="form-control" id="inv-namhoc" min="2000" max="3000" placeholder="Năm học">
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="inv-hocky">Học Kỳ / Tháng</label>
+              <input type="number" class="form-control" id="inv-hocky" min="1" max="12" placeholder="Học kỳ">
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="exampleInputFile">Lớp</label>
+              <select class="form-control select2" id="inv-lop">
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="form-group">
+              <label for="exampleInputFile">Học Sinh</label>
+              <select class="form-control select2" id="inv-hocsinh">
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <hr>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="invoice-print">
+              <div class="invoice">
+                <div class="pull-left">
+                  <table>
+                    <tr>
+                      <td><strong>Đơn vị : TRƯỜNG THCS HOÀNG LÊ KHA</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Địa chỉ: 383-391 Bến Phú Lâm, P.9, Q.6, TP.HCM</td>
+                    </tr>
+                    <tr>
+                      <td>Mã số thuế: 0 3 1 0 0 8 7 9 6 3</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="pull-right">
+                  <table>
+                    <tr>
+                      <td class="text-right">Mẫu số: </td>
+                      <td class="text-left invoice-title-right">02GTTT2/001</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right">Ký hiệu:</td>
+                      <td class="text-left invoice-title-right">LK/18T</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right">Số:</td>
+                      <td class="text-left invoice-title-right">0000000</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="text-center">(Liên 1: Lưu)</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="invoice-detail">
+                  <table class="width-100">
+                    <tr>
+                      <td colspan="2" class="text-center">
+                        <h4 class="no-margin"><strong>HÓA ĐƠN BÁN HÀNG</strong></h4>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="text-center">
+                        <p  class="no-margin">Ngày <span class="ngay-ht"></span> tháng <span class="thang-ht"></span> năm <span class="nam-ht"></span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Người mua: <span></span></td>
+                      <td>MST:</td>
+                    </tr>
+                    <tr>
+                      <td style="width:70%">Địa chỉ:</td>
+                      <td>Hình thức thanh toán: TM</td>
+                    </tr>
+                  </table>
+                  <table style="width:100%;" class="tbl-border">
+                    <tr>
+                      <td class="text-center">Stt</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">1</td>
+                      <td>Tên hàng hóa, dịch vụ</td>
+                      <td>ĐVT</td>
+                      <td>Số lượng</td>
+                      <td>Đơn giá</td>
+                      <td>Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">2</td>
+                      <td>Tên hàng hóa, dịch vụ</td>
+                      <td>ĐVT</td>
+                      <td>Số lượng</td>
+                      <td>Đơn giá</td>
+                      <td>Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">4</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">5</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">6</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">7</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">8</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">9</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">10</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">11</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" class="row-total">
+                        Cộng tiền bán hàng hóa, dịch vụ <span class="total-num"></span><br>
+                        Số tiền viết bằng chữ: <span class="total-text"></span>
+                      </td>
+                    </tr>
+                  </table>
+                  <table class="width-100">
+                    <tr>
+                      <td class="text-center">Người mua hàng</td>
+                      <td class="text-center">Người bán hàng</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">(Ký, ghi rõ họ tên)</td>
+                      <td class="text-center">(Ký, đóng dấu, ghi rõ họ tên)</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="clearfix">
+              </div>
+              
+              <hr class="line-invoice">
+              <div class="invoice">
+                <div class="pull-left">
+                  <table>
+                    <tr>
+                      <td><strong>Đơn vị : TRƯỜNG THCS HOÀNG LÊ KHA</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Địa chỉ: 383-391 Bến Phú Lâm, P.9, Q.6, TP.HCM</td>
+                    </tr>
+                    <tr>
+                      <td>Mã số thuế: 0 3 1 0 0 8 7 9 6 3</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="pull-right">
+                  <table>
+                    <tr>
+                      <td class="text-right">Mẫu số: </td>
+                      <td class="text-left invoice-title-right">02GTTT2/001</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right">Ký hiệu:</td>
+                      <td class="text-left invoice-title-right">LK/18T</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right">Số:</td>
+                      <td class="text-left invoice-title-right">0000000</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="text-center">(Liên 2: Giao người mua)</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="invoice-detail">
+                  <table class="width-100">
+                    <tr>
+                      <td colspan="2" class="text-center">
+                        <h4><strong>HÓA ĐƠN BÁN HÀNG</strong></h4>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="text-center">
+                        <p>Ngày <span class="ngay-ht"></span> tháng <span class="thang-ht"></span> năm <span class="nam-ht"></span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Người mua: <span></span></td>
+                      <td>MST:</td>
+                    </tr>
+                    <tr>
+                      <td style="width:70%">Địa chỉ:</td>
+                      <td>Hình thức thanh toán: TM</td>
+                    </tr>
+                  </table>
+                  <table style="width:100%;" class="tbl-border">
+                    <tr>
+                      <td class="text-center">Stt</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">1</td>
+                      <td>Tên hàng hóa, dịch vụ</td>
+                      <td>ĐVT</td>
+                      <td>Số lượng</td>
+                      <td>Đơn giá</td>
+                      <td>Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">2</td>
+                      <td>Tên hàng hóa, dịch vụ</td>
+                      <td>ĐVT</td>
+                      <td>Số lượng</td>
+                      <td>Đơn giá</td>
+                      <td>Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">4</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">5</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">6</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">7</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">8</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">9</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">10</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">11</td>
+                      <td class="text-center">Tên hàng hóa, dịch vụ</td>
+                      <td class="text-center">ĐVT</td>
+                      <td class="text-center">Số lượng</td>
+                      <td class="text-center">Đơn giá</td>
+                      <td class="text-center">Thành tiền</td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" class="row-total">
+                        Cộng tiền bán hàng hóa, dịch vụ <span class="total-num"></span><br>
+                        Số tiền viết bằng chữ: <span class="total-text"></span>
+                      </td>
+                    </tr>
+                  </table>
+                  <table class="width-100">
+                    <tr>
+                      <td class="text-center">Người mua hàng</td>
+                      <td class="text-center">Người bán hàng</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">(Ký, ghi rõ họ tên)</td>
+                      <td class="text-center">(Ký, đóng dấu, ghi rõ họ tên)</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
+
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2018 <a href="#">Tony's</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Create the tabs -->
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane active" id="control-sidebar-home-tab">
+          <h3 class="control-sidebar-heading">Recent Activity</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:;">
+                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                  <p>Will be 23 on April 24th</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+
+          <h3 class="control-sidebar-heading">Tasks Progress</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:;">
+                <h4 class="control-sidebar-subheading">
+                  Custom Template Design
+                  <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+                </h4>
+
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Stats tab content -->
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+          <form method="post">
+            <h3 class="control-sidebar-heading">General Settings</h3>
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Report panel usage
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+
+              <p>
+                Some information about this general settings option
+              </p>
+            </div>
+            <!-- /.form-group -->
+          </form>
+        </div>
+        <!-- /.tab-pane -->
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED JS SCRIPTS -->
+
+  <!-- jQuery 3 -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="js/adminlte.min.js"></script>
+  <!-- Excel to Json -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+  <!-- Fixed table -->
+  <script src="js/freeze-table.js"></script>
+  <!-- Select 2 -->
+  <script src="js/select2.full.min.js"></script>
+  <!-- Print This -->
+  <script src="js/printThis.js"></script>
+  <!-- Custom App -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

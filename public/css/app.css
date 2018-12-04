@@ -1,0 +1,27 @@
+td.row-total {
+    padding-left: 30px;
+}
+
+.tbl-border td{
+    border: 1px solid black;
+}
+.invoice-title-right{
+    padding-left:20px;
+}
+.width-100{
+    width:100%;
+}
+hr.line-invoice {
+    color: #000;
+    border-top: 1px dashed black;
+    margin: 30px 20px 10px 20px;
+}
+
+.no-margin{
+    margin:0px !important;
+}
+
+.invoice-detail{
+    position: relative;
+    top: -19px;
+}
