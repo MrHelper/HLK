@@ -1,3 +1,4 @@
+let domain = "http://localhost:5001/hlkschool-55376/us-central1/app/"
 $(document).ready(function () {
     $('.select2').select2();
 });
@@ -7,7 +8,7 @@ $(document).ready(function () {
 // UI COMMON
 $('.sidebar-menu li').on('click', function () {
     $('.sidebar-menu li').removeClass('active');
-    if($(this).attr('page'))
+    if ($(this).attr('page'))
         Navigation($(this).attr('page'));
 });
 
@@ -21,6 +22,26 @@ $('#imp-file').change(function (ev) {
     IMP_ExcelFileReader(ev);
 });
 
+$('#imp-add').on('click', function () {
+    let Year = $('#imp-namhoc').val();
+    let Month = $('#imp-hocky').val();
+    let Class = $('#imp-loai').val();
+    if (Year != "" && Month != "" && Class != "") {
+        $.when(IMP_GetData(Year, Month, Class)).done(function (result) {
+            if (result.data) {
+                if (confirm("Đã có dữ liệu của tháng này. Bạn có muốn ghi đè không ?")) {
+                    $.when(IMP_DeleteData(Year, Month, Class).done(function () {
+                        IMP_UploadData(Year, Month, Class, window['IMPData']);
+                    }))
+                } else {
+                    return;
+                }
+            } else {
+                IMP_UploadData(Year, Month, Class, window['IMPData']);
+            }
+        });
+    }
+});
 
 // -----------------------------------FUNCTION
 // IMPORT DATA
@@ -81,6 +102,7 @@ function IMP_LoadData(data) {
 
 function IMP_ShowData(data) {
     console.log(JSON.stringify(data));
+    window['IMPData'] = JSON.stringify(data);
     $('#imp-table tbody').html("");
     $('#imp-table thead').html("");
     var title = "",
@@ -113,10 +135,55 @@ function IMP_ShowData(data) {
 
 }
 
-function IMP_UploadData(data){
+function IMP_GetData(Year, Month, Class) {
+    return $.ajax({
+        type: "GET",
+        url: `BienLai?Year=${Year}&Month=${Month}&Class=${Class}`,
+        success: function (resultData) {
+            return resultData.data;
+        },
+        fail: function () {
+            alert(resultData.mess);
+        }
+    });
+}
 
+function IMP_UploadData(Year, Month, Class, Data) {
+    $.ajax({
+        type: "POST",
+        url: "BienLai",
+        data: {
+            Year: Year,
+            Month: Month,
+            Class: Class,
+            Data: Data
+        },
+        success: function (resultData) {
+            alert(resultData.mess);
+        },
+        fail: function () {
+            alert(resultData.mess);
+        }
+    });
+}
+
+function IMP_DeleteData(Year, Month, Class) {
+    return $.ajax({
+        type: "DELETE",
+        url: "BienLai?" + $.param({
+            Year: Year,
+            Month: Month,
+            Class: Class
+        }),
+        success: function (resultData) {
+            console.log(resultData.mess);
+        },
+        fail: function () {
+            console.log(resultData.mess);
+        }
+    });
 }
 // INVOICE
-function INV_GetInvoice(Year,Month,Class,Name){
-
+function INV_GetInvoice(Year, Month, Class, StudentClass, StudentName) {
+    
 }

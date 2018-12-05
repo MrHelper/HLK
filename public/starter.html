@@ -193,27 +193,41 @@ desired effect
         </section>
 
         <section class="page-content" id="ImportData">
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="form-group">
+              <label for="imp-loai">Loại</label>
+              <select name="" id="imp-loai" class="form-control select2" required="required">
+                <option value="HocPhi">Học Phí</option>
+                <option value="BaoHiem">Bảo Hiểm</option>
+                <option value="Khac">Khác</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div class="form-group">
               <label for="imp-namhoc">Năm Học</label>
               <input type="number" class="form-control" id="imp-namhoc" min="2000" max="3000" placeholder="Năm học">
             </div>
           </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div class="form-group">
               <label for="imp-hocky">Học Kỳ / Tháng</label>
               <input type="number" class="form-control" id="imp-hocky" min="1" max="12" placeholder="Học kỳ">
             </div>
           </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group">
               <label for="exampleInputFile">File dữ liệu</label>
               <input type="file" id="imp-file">
             </div>
           </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-            <button type="button" class="btn btn-primary" style="margin-top:20px;">Thêm</button>
-
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="form-group">
+              <label>　</label>
+              <br>
+              <button type="button" id="imp-add" class="btn btn-primary">Thêm dữ liệu</button>
+            </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="imp-student">
@@ -225,34 +239,49 @@ desired effect
               </table>
             </div>
           </div>
-
         </section>
-
         <section class="page-content" id="Invoice">
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="form-group">
+              <label for="inv-loai">Loại</label>
+              <select name="" id="imp-loai" class="form-control select2" required="required">
+                <option value="HocPhi">Học Phí</option>
+                <option value="BaoHiem">Bảo Hiểm</option>
+                <option value="Khac">Khác</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div class="form-group">
               <label for="inv-namhoc">Năm Học</label>
               <input type="number" class="form-control" id="inv-namhoc" min="2000" max="3000" placeholder="Năm học">
             </div>
           </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div class="form-group">
               <label for="inv-hocky">Học Kỳ / Tháng</label>
               <input type="number" class="form-control" id="inv-hocky" min="1" max="12" placeholder="Học kỳ">
             </div>
           </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div class="form-group">
-              <label for="exampleInputFile">Lớp</label>
+              <label for="inv-lop">Lớp</label>
               <select class="form-control select2" id="inv-lop">
               </select>
             </div>
           </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div class="form-group">
               <label for="exampleInputFile">Học Sinh</label>
               <select class="form-control select2" id="inv-hocsinh">
               </select>
+            </div>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="form-group">
+              <label>　</label>
+              <br>
+              <button type="button" class="btn btn-primary">Xem Thông Tin</button>
             </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -302,7 +331,8 @@ desired effect
                     </tr>
                     <tr>
                       <td colspan="2" class="text-center">
-                        <p  class="no-margin">Ngày <span class="ngay-ht"></span> tháng <span class="thang-ht"></span> năm <span class="nam-ht"></span></p>
+                        <p class="no-margin">Ngày <span class="ngay-ht"></span> tháng <span class="thang-ht"></span>
+                          năm <span class="nam-ht"></span></p>
                       </td>
                     </tr>
                     <tr>
@@ -432,7 +462,7 @@ desired effect
               </div>
               <div class="clearfix">
               </div>
-              
+
               <hr class="line-invoice">
               <div class="invoice">
                 <div class="pull-left">
