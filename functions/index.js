@@ -28,10 +28,6 @@ const app = express();
 const bienLairef = db.collection('BienLai');
 const HocSinhref = db.collection('HocSinh');
 
-app.get('/timestamp', (req, res) => {
-    res.send(`${Date.now()}`);
-});
-
 app.post('/BienLai', (req, res) => {
     console.log(req);
     var status = 200;
@@ -43,29 +39,21 @@ app.post('/BienLai', (req, res) => {
         Data = reqBody.Data;
     if (Month && Year && Class && Data) {
         var jData = JSON.parse(Data);
-        var sLop = "";
 
         // DELETE OLD STUDENT INFO START
-        var Reref = bienLairef.doc(Class).collection(Year + '-' + Month).get().then(snap => {
+        var Reref = db.collection(Year + "-" + Month).doc(Class).collection('DanhSach').get().then(snap => {
             if (snap.size > 0) {
                 snap.forEach(doc => {
                     doc.ref.delete();
-                });
-                res.status(200).send({
-                    mess: 'Đã xóa xong.',
-                });
-            } else {
-                res.status(400).send({
-                    mess: 'Không có danh mục nào để xóa',
                 });
             }
             return true;
         });
         // DELETE OLD STUDENT INFO END
         for (let item of jData) {
-            let lop = item['Lớp'].replace('/', '-');
-            bienLairef.doc(Class).collection(Year).doc(Month).collection(lop).add(item);
-            HocSinhref.doc(Year).collection(Month).doc(lop).collection('DanhSach').add({
+            let Lop = item['Lớp'];
+            db.collection(Year + "-" + Month).doc(Class).collection('ThongTin').add(item);
+            db.collection(Year + "-" + Month).doc(Class).collection('DanhSach').add({
                 Lop: Lop,
                 Ten: item['Họ Tên']
             });
@@ -85,7 +73,7 @@ app.delete('/BienLai', (req, res) => {
     var Month = reqBody.Month,
         Year = reqBody.Year,
         Class = reqBody.Class;
-    var Reref = bienLairef.doc(Class).collection(Year).doc(Month).delete().then(docs => {
+    var Reref = db.collection(Year + "-" + Month).doc(Class).delete().then(docs => {
         return res.status(200).send({
             mess: 'Đã xóa xong.',
         });
@@ -97,14 +85,43 @@ app.delete('/BienLai', (req, res) => {
     })
 });
 
-
 app.get('/BienLai', (req, res) => {
     var reqBody = req.query;
     var Month = reqBody.Month,
         Year = reqBody.Year,
         Class = reqBody.Class;
     if (Month && Year && Class) {
-        var Reref = bienLairef.doc(Class).collection(Year + '-' + Month).get().then(snap => {
+        var Reref = db.collection(Year + "-" + Month).doc(Class).collection('ThongTin').get()
+            .then(snap => {
+                if (snap.size > 0) {
+                    var data = [];
+                    snap.forEach(doc => {
+                        data.push(doc.data());
+                    });
+                    return res.status(200).send({
+                        data: data.sort(function(a,b) {return (a['Lớp'] > b['Lớp']) ? 1 : ((b['Lớp'] > a['Lớp']) ? -1 : 0);} ),
+                        mess: 'Hoàn tất'
+                    });
+                } else {
+                    return res.status(200).send({
+                        mess: 'Không có danh mục nào.',
+                    });
+                }
+            });
+    } else {
+        res.status(400).send({
+            mess: "Thiếu thông tin."
+        });
+    }
+})
+
+app.get('/BienLai/DanhSach', (req, res) => {
+    var reqBody = req.query;
+    var Month = reqBody.Month,
+        Year = reqBody.Year,
+        Class = reqBody.Class;
+    if (Month && Year && Class) {
+        var Reref = db.collection(Year + "-" + Month).doc(Class).collection('DanhSach').get().then(snap => {
             if (snap.size > 0) {
                 var data = [];
                 snap.forEach(doc => {
@@ -119,6 +136,11 @@ app.get('/BienLai', (req, res) => {
                     mess: 'Không có danh mục nào.',
                 });
             }
+        }).catch(err => {
+            return res.status(200).send({
+                mess: 'Không thực thi được.',
+                err: err
+            });
         });
     } else {
         res.status(400).send({
@@ -134,7 +156,7 @@ app.get('/HoaDon', (req, res) => {
         Class = reqBody.Class,
         StudentClass = reqBody.StudentClass,
         StudentName = reqBody.StudentName;
-    var ref = bienLairef.doc(Class).collection(Year + '-' + Month)
+    var ref = db.collection(Year + "-" + Month).doc(Class).collection('ThongTin')
         .where('Họ Tên', '==', StudentName)
         .where('Lớp', '==', StudentClass).get().then(snap => {
             var data = [];
@@ -162,7 +184,7 @@ app.post('/HoaDon', (req, res) => {
         StudentName = reqBody.StudentName,
         Pay = reqBody.Pay;
 
-    var ref = bienLairef.doc(Class).collection(Year + '-' + Month)
+    var ref = db.collection(Year + "-" + Month).doc(Class).collection('ThongTin')
         .where('Họ Tên', '==', StudentName)
         .where('Lớp', '==', StudentClass).get()
         .then(snap => {

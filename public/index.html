@@ -1,65 +1,802 @@
 <!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.5.9/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.5.9/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.5.9/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.5.9/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.5.9/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tony's Managerment</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="css/skins/_all-skins.min.css">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <link rel="stylesheet" href="css/app.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+
+<body class="hold-transition skin-black sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+      <!-- Logo -->
+      <a href="./" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>TN</b>'S</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Tony</b>'s</span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img src="img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs user-name">Tony's</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                  <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <p><span class="user-name">Tony's</span><small class="company-name">Pasonatech VietNam</small></p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+            <li>
+              <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+
+        <!-- search form (Optional) -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">Chức năng</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li page="Home"><a href="#"><i class="fa fa-dashboard"></i> <span>Trang Chủ</span></a></li>
+          <li page="ImportData"><a href="#"><i class="fa fa-table"></i> <span>Thêm Dữ Liệu</span></a></li>
+          <li page="Invoice"><a href="#"><i class="fa fa-files-o"></i>Thu Tiền</a></li>
+          <li page="Sumary"><a href="#"><i class="fa fa-edit"></i>Thống Kê</a></li>
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content container-fluid">
+
+        <section class="page-content" id="Home">
+          <h1>Welcome</h1>
+        </section>
+
+        <section class="page-content" id="ImportData">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Dữ liệu</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="imp-loai">Loại</label>
+                  <select name="" id="imp-loai" class="form-control select2" required="required">
+                    <option value="HocPhi">Học Phí</option>
+                    <option value="BaoHiem">Bảo Hiểm</option>
+                    <option value="Khac">Khác</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="imp-namhoc">Năm Học</label>
+                  <input type="number" class="form-control" id="imp-namhoc" min="2000" max="3000" placeholder="Năm học">
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="imp-hocky">Học Kỳ / Tháng</label>
+                  <input type="number" class="form-control" id="imp-hocky" min="1" max="12" placeholder="Học kỳ">
+                </div>
+              </div>
+
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label for="exampleInputFile">File dữ liệu</label>
+                  <input type="file" id="imp-file">
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>　</label>
+                  <br>
+
+                </div>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <button type="button" id="imp-add" class="btn btn-sm bg-navy btn-flat pull-right"><i class="fa fa-plus"></i>
+                Thêm dữ liệu</button>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Danh sách</h3>
+            </div>
+            <div class="box-body">
+              <div class="imp-student table-responsive">
+                <table class="table table-hover" id="imp-table">
+                  <thead>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-content" id="Invoice">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Thu Phí</h3>
+            </div>
+            <div class="box-body">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="inv-loai">Loại</label>
+                  <select name="" id="inv-loai" class="form-control select2" required="required">
+                    <option value="HocPhi">Học Phí</option>
+                    <option value="BaoHiem">Bảo Hiểm</option>
+                    <option value="Khac">Khác</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="inv-namhoc">Năm Học</label>
+                  <input type="number" class="form-control" id="inv-namhoc" min="1900" max="3000" placeholder="Năm học">
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="inv-hocky">Học Kỳ / Tháng</label>
+                  <input type="number" class="form-control" id="inv-hocky" min="1" max="12" placeholder="Học kỳ">
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="inv-lop">Lớp</label>
+                  <select class="form-control select2" id="inv-lop">
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label for="exampleInputFile">Học Sinh</label>
+                  <select class="form-control select2" id="inv-hocsinh">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer clearfix">
+              <span type="button" class="btn btn-sm bg-danger btn-flat pull-left hidden" disabled id="inv-trangthai"><i class="fa fa-close"></i>
+                Hủy</span>
+              <button type="button" class="btn btn-sm bg-navy btn-flat pull-right" id="inv-inbienlai"><i class="fa fa-print"></i>
+                In Biên
+                Lai</button>
+            </div>
+          </div>
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Hóa Đơn</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="invoice-print">
+                  <div class="invoice">
+                    <div class="pull-left">
+                      <table>
+                        <tr>
+                          <td><strong>Đơn vị : TRƯỜNG THCS HOÀNG LÊ KHA</strong></td>
+                        </tr>
+                        <tr>
+                          <td>Địa chỉ: 383-391 Bến Phú Lâm, P.9, Q.6, TP.HCM</td>
+                        </tr>
+                        <tr>
+                          <td>Mã số thuế: 0 3 1 0 0 8 7 9 6 3</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="pull-right">
+                      <table>
+                        <tr>
+                          <td class="text-right">Mẫu số: </td>
+                          <td class="text-left invoice-title-right">02GTTT2/001</td>
+                        </tr>
+                        <tr>
+                          <td class="text-right">Ký hiệu:</td>
+                          <td class="text-left invoice-title-right">LK/18T</td>
+                        </tr>
+                        <tr>
+                          <td class="text-right">Số:</td>
+                          <td class="text-left invoice-title-right">0000000</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" class="text-center">(Liên 1: Lưu)</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="invoice-detail">
+                      <table class="width-100">
+                        <tr>
+                          <td colspan="2" class="text-center">
+                            <h4 class="no-margin"><strong>HÓA ĐƠN BÁN HÀNG</strong></h4>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" class="text-center">
+                            <p class="no-margin">Ngày <span class="ngay-ht"></span> tháng <span class="thang-ht"></span>
+                              năm <span class="nam-ht"></span></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Người mua: <span class="HoTen text-bold"></span></td>
+                          <td>MST:</td>
+                        </tr>
+                        <tr>
+                          <td style="width:70%">Địa chỉ: <span class="DiaChi text-bold"></span></td>
+                          <td>Hình thức thanh toán: TM</td>
+                        </tr>
+                      </table>
+                      <table style="width:100%;" class="tbl-border tbl-invoice" id="hoadon-l1">
+                        <tr>
+                          <td class="text-center text-bold">Stt</td>
+                          <td class="text-center text-bold">Tên hàng hóa, dịch vụ</td>
+                          <td class="text-center text-bold">ĐVT</td>
+                          <td class="text-center text-bold">Số lượng</td>
+                          <td class="text-center text-bold">Đơn giá</td>
+                          <td class="text-center text-bold">Thành tiền</td>
+                        </tr>
+                        <tr class="row-0">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-1">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-2">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-3">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-4">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-5">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-6">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-7">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-8">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-9">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-10">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-tt">
+                          <td colspan="6" class="row-total">
+                            Cộng tiền bán hàng hóa, dịch vụ <span class="total-num text-bold"></span><br>
+                            Số tiền viết bằng chữ: <span class="total-text text-bold"></span>
+                          </td>
+                        </tr>
+                      </table>
+                      <table class="width-100">
+                        <tr>
+                          <td class="text-center">Người mua hàng</td>
+                          <td class="text-center">Người bán hàng</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">(Ký, ghi rõ họ tên)</td>
+                          <td class="text-center">(Ký, đóng dấu, ghi rõ họ tên)</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="clearfix">
+                    <br>
+                  </div>
+
+                  <hr class="line-invoice">
+                  <div class="invoice">
+                    <div class="pull-left">
+                      <table>
+                        <tr>
+                          <td><strong>Đơn vị : TRƯỜNG THCS HOÀNG LÊ KHA</strong></td>
+                        </tr>
+                        <tr>
+                          <td>Địa chỉ: 383-391 Bến Phú Lâm, P.9, Q.6, TP.HCM</td>
+                        </tr>
+                        <tr>
+                          <td>Mã số thuế: 0 3 1 0 0 8 7 9 6 3</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="pull-right">
+                      <table>
+                        <tr>
+                          <td class="text-right">Mẫu số: </td>
+                          <td class="text-left invoice-title-right">02GTTT2/001</td>
+                        </tr>
+                        <tr>
+                          <td class="text-right">Ký hiệu:</td>
+                          <td class="text-left invoice-title-right">LK/18T</td>
+                        </tr>
+                        <tr>
+                          <td class="text-right">Số:</td>
+                          <td class="text-left invoice-title-right">0000000</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" class="text-center">(Liên 2: Giao người mua)</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="invoice-detail">
+                      <table class="width-100">
+                        <tr>
+                          <td colspan="2" class="text-center">
+                            <h4><strong>HÓA ĐƠN BÁN HÀNG</strong></h4>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" class="text-center">
+                            <p>Ngày <span class="ngay-ht"></span> tháng <span class="thang-ht"></span> năm <span class="nam-ht"></span></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Người mua: <span class="HoTen text-bold"></span></td>
+                          <td>MST:</td>
+                        </tr>
+                        <tr>
+                          <td style="width:70%">Địa chỉ: <span class="DiaChi text-bold"></span></td>
+                          <td>Hình thức thanh toán: TM</td>
+                        </tr>
+                      </table>
+                      <table style="width:100%;" class="tbl-border tbl-invoice" id="hoadon-l2">
+                        <tr>
+                          <td class="text-center text-bold">Stt</td>
+                          <td class="text-center text-bold">Tên hàng hóa, dịch vụ</td>
+                          <td class="text-center text-bold">ĐVT</td>
+                          <td class="text-center text-bold">Số lượng</td>
+                          <td class="text-center text-bold">Đơn giá</td>
+                          <td class="text-center text-bold">Thành tiền</td>
+                        </tr>
+                        <tr class="row-0">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-1">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-2">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-3">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-4">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-5">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-6">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-7">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-8">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-9">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-10">
+                          <td class="text-center"></td>
+                          <td>　</td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="text-right"></td>
+                          <td class="text-right text-bold"></td>
+                        </tr>
+                        <tr class="row-tt">
+                          <td colspan="6" class="row-total">
+                            Cộng tiền bán hàng hóa, dịch vụ <span class="total-num text-bold"></span><br>
+                            Số tiền viết bằng chữ: <span class="total-text text-bold"></span>
+                          </td>
+                        </tr>
+                      </table>
+                      <table class="width-100">
+                        <tr>
+                          <td class="text-center">Người mua hàng</td>
+                          <td class="text-center">Người bán hàng</td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">(Ký, ghi rõ họ tên)</td>
+                          <td class="text-center">(Ký, đóng dấu, ghi rõ họ tên)</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="page-content" id="Sumary">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Thống kê</h3>
+            </div>
+            <div class="box-body">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="sum-loai">Loại</label>
+                  <select id="sum-loai" class="form-control select2" required="required">
+                    <option value="HocPhi">Học Phí</option>
+                    <option value="BaoHiem">Bảo Hiểm</option>
+                    <option value="Khac">Khác</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="sum-namhoc">Năm Học</label>
+                  <input type="number" class="form-control" id="sum-namhoc" min="1900" max="3000" placeholder="Năm học">
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label for="sum-hocky">Học Kỳ / Tháng</label>
+                  <input type="number" class="form-control" id="sum-hocky" min="1" max="12" placeholder="Học kỳ">
+                </div>
+              </div>
+            </div>
+            <div class="box-footer clearfix">
+              <button type="button" class="btn btn-sm bg-navy btn-flat pull-right" id="sum-xuatexcel"><i class="fa fa-print"></i>
+                Xuất Excel</button>
+            </div>
+          </div>
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Danh sách</h3>
+            </div>
+            <div class="box-body">
+
+              <div class="table-responsive">
+                <table class="table table-hover" id="sum-exceltable">
+                  <thead>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- /.content -->
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <!-- /.content-wrapper -->
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2018 <a href="#">Tony's</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Create the tabs -->
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane active" id="control-sidebar-home-tab">
+          <h3 class="control-sidebar-heading">Thông tin khác</h3>
+          <!-- /.control-sidebar-menu -->
+          <ul class="control-sidebar-menu">
+            <li>
+              <span>Sẽ cập nhật sau.</span>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Stats tab content -->
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+          <form method="post">
+            <h3 class="control-sidebar-heading">Cài đặt</h3>
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Đặt mật khẩu khi đăng nhập
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+
+              <p>
+                Mỗi khi vào trang sẽ nhập mật khẩu.
+              </p>
+            </div>
+            <!-- /.form-group -->
+          </form>
+        </div>
+        <!-- /.tab-pane -->
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  <div class="loading">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
+  <!-- REQUIRED JS SCRIPTS -->
+
+  <!-- jQuery 3 -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="js/adminlte.min.js"></script>
+  <!-- Excel to Json -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+  <!-- Fixed table -->
+  <script src="js/freeze-table.js"></script>
+  <!-- Select 2 -->
+  <script src="js/select2.full.min.js"></script>
+  <!-- Print This -->
+  <script src="js/printThis.js"></script>
+  <!-- Export Excel -->
+  <script src="js/excelexportjs.js"></script>
+  <!-- Custom App -->
+  <script src="js/common.js"></script>
+  <script src="js/control.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
 </html>
